@@ -1,21 +1,10 @@
-import { MovieProps } from '@/utils/movie.type'
+import { MovieProps } from '@/utils/types/movie'
 import styles from "./page.module.scss";
 import Link from 'next/link';
-
-async function getFilmes() {
-  try{
-    const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&language=en&page=1`, { next: { revalidate: 320 } })
-    const data = await res.json() 
-    const movies = data.results.slice(0, 12)
-    // console.log(movies)
-    return movies
-  }catch(err){
-    throw new Error("Failed to fetch data")
-  }
-} 
+import { getMovies } from '@/utils/get-data';
 
 export default async function Home(){
-  const movies: MovieProps[] = await getFilmes()
+  const movies: MovieProps[] = await getMovies()
 
   return(
     <div>
