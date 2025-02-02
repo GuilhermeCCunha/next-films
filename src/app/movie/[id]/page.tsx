@@ -15,12 +15,13 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
   const { id } = await props.params;    
   const movie: MovieDetailsProps = await getMovieDetails(id)
   const genres = movie.genres
-  
+
   return(
     <div>
       <h1>{movie.title}</h1>
       <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
       <ul>
+        <li>{`${movie.release_date.substring(0, 4)} `}<span>|</span></li>
         {genres.map((genre, index) => {
           let isEndofArray: boolean = index === genres.length - 1
           return(
@@ -30,7 +31,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
             </li>
           )
         })} 
-      </ul>     
+      </ul>      
       
       <h3>Overview</h3>
       <span>{movie.overview}</span>
