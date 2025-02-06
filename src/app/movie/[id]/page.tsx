@@ -1,5 +1,6 @@
 import { getMovieDetails } from "@/utils/get-data";
 import { MovieDetailsProps } from "@/utils/types/details";
+import { calcTime } from "@/utils/helpers";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -22,6 +23,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
       <ul>
         <li>{`${movie.release_date.substring(0, 4)} `}<span>|</span></li>
+        <li>{`${calcTime(movie.runtime)} `}<span>|</span></li>
         {genres.map((genre, index) => {
           let isEndofArray: boolean = index === genres.length - 1
           return(
@@ -32,17 +34,17 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
           )
         })} 
       </ul>      
-      
+
       <h3>Overview</h3>
       <span>{movie.overview}</span>
       <strong>⭐ {movie.vote_average} / 10</strong>
 
       <div>
-        <button>
+        <div>
           <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} Official Trailer`}>
             Trailer
           </a>
-        </button>
+        </div>
       </div>
 
     </div>
