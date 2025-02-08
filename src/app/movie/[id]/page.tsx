@@ -1,5 +1,6 @@
 import { getMovieDetails } from "@/utils/get-data";
 import { MovieDetailsProps } from "@/utils/types/details";
+import styles from './styles.module.scss';
 import { calcTime } from "@/utils/helpers";
 
 
@@ -18,7 +19,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
   const genres = movie.genres
 
   return(
-    <div>
+    <div className={styles.details}>
       <h1>{movie.title}</h1>
       <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
       <ul>
@@ -39,7 +40,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <span>{movie.overview}</span>
       <strong>⭐ {movie.vote_average} / 10</strong>
 
-      <div>
+      <div className={styles.containerButtons}>
         <div>
           <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} Official Trailer`}>
             Trailer
