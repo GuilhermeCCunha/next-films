@@ -6,7 +6,7 @@ export const calcTime = (time: number): string => {
   return `${hours}h ${mins}m`;
 }
 
-export const getsavedMovies = (): Array<MovieDetailsProps>  => { 
+export const getSavedMovies = (): Array<MovieDetailsProps> => {
   const savedMovies: string = localStorage.getItem("nextfilms") || '[]';
   let movies: Array<MovieDetailsProps>
   return movies = JSON.parse(savedMovies) || [];
@@ -14,4 +14,11 @@ export const getsavedMovies = (): Array<MovieDetailsProps>  => {
 
 export const setSavedMovies = (movies: MovieDetailsProps[]) => {
   localStorage.setItem("nextfilms", JSON.stringify(movies))
+}
+
+export const verifyMovie = (id: string): boolean => {
+  const hasMovie: boolean = getSavedMovies().some(
+    (savedMovies: { id: number }) => savedMovies.id === parseInt(id)
+  )
+  return hasMovie
 }
