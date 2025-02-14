@@ -1,3 +1,4 @@
+import { getMovieDetails } from "./get-data";
 import { MovieDetailsProps } from "./types/details";
 
 export const calcTime = (time: number): string => {
@@ -21,4 +22,16 @@ export const verifyMovie = (id: string): boolean => {
     (savedMovies: { id: number }) => savedMovies.id === parseInt(id)
   )
   return hasMovie
+}
+
+export async function addMovie(id: string) {
+  const movie: MovieDetailsProps = await getMovieDetails(id)
+
+  if (verifyMovie(id)) {
+    return;
+  }
+
+  let movies = getSavedMovies();
+  movies.push(movie);
+  setSavedMovies(movies);
 }
