@@ -35,3 +35,12 @@ export async function addMovie(id: string) {
   movies.push(movie);
   setSavedMovies(movies);
 }
+
+export function removeMovie(id: string) {
+  let movies = getSavedMovies();
+  let filteredMovies = movies.filter((item: { id: number; }) => {
+    return (item.id !== parseInt(id))
+  })
+  setSavedMovies(filteredMovies);
+  return filteredMovies
+}
