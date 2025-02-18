@@ -2,6 +2,7 @@ import { getMovieDetails } from "@/utils/get-data";
 import { MovieDetailsProps } from "@/utils/types/details";
 import styles from './styles.module.scss';
 import { calcTime } from "@/utils/helpers";
+import FavoriteButton from "@/components/favoritebutton";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -41,6 +42,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <strong>⭐ {movie.vote_average} / 10</strong>
 
       <div className={styles.containerButtons}>
+        <FavoriteButton id={movie.id.toString()} />
         <div>
           <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} Official Trailer`}>
             Trailer
