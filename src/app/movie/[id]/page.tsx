@@ -3,6 +3,7 @@ import { MovieDetailsProps } from "@/utils/types/details";
 import styles from './styles.module.scss';
 import { calcTime } from "@/utils/helpers";
 import FavoriteButton from "@/components/favoritebutton";
+import { IMG_BASE_URL } from "@/utils/tmdb";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -22,7 +23,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
   return(
     <div className={styles.details}>
       <h1>{movie.title}</h1>
-      <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
+      <img src={`${IMG_BASE_URL}/original${movie.backdrop_path}`} alt={movie.title} />
       <ul>
         <li>{`${movie.release_date.substring(0, 4)} `}<span>|</span></li>
         <li>{`${calcTime(movie.runtime)} `}<span>|</span></li>

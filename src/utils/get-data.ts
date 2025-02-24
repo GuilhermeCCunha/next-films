@@ -1,8 +1,9 @@
 import { redirect } from "next/navigation";
+import { API_KEY, API_URL } from "./tmdb";
 
 export async function getMovies() {
   try{
-    const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en&page=1`, { next: { revalidate: 320 } })
+    const res = await fetch(`${API_URL}/movie/now_playing?api_key=${API_KEY}&language=en&page=1`, { next: { revalidate: 320 } })
     const data = await res.json() 
     const movies = data.results.slice(0, 12)
       // console.log(movies)
@@ -13,7 +14,7 @@ export async function getMovies() {
 }
 
 export async function getMovieDetails(id: string) { 
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en`, { next: { revalidate: 320 } })
+  const res = await fetch(`${API_URL}/movie/${id}?api_key=${API_KEY}&language=en`, { next: { revalidate: 320 } })
   const movie = await res.json() 
     // console.log(movie)
 
