@@ -1,0 +1,55 @@
+.search {
+    border: 2px solid lightgrey;
+    overflow: auto;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #FFF;
+
+    &:has(input[type="text"]:focus) {
+        border: 2px solid crimson;
+    }
+}
+
+.search input[type="text"] {
+    border: 0px;
+    max-width: 70%;
+    padding: 10px 10px;
+}
+
+.search input[type="text"] {
+    &:focus {
+        outline: 0;
+    }
+}
+
+.search input[type="submit"] {
+    border: 0px;
+    background: none;
+    background-color: crimson;
+    color: #FFF;
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+    width: 30%;
+}
+
+
+@media only screen and (min-width : 150px) and (max-width : 780px) {
+    .search {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .search input[type="text"] {
+        border: 0px;
+        width: 70%;
+        max-width: 78%;
+        padding: 10px 10px;
+    }
+
+    .search input[type="submit"] {
+        width: 25%;
+    }
+
+}

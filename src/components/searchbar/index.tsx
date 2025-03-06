@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
+import styles from './styles.module.scss';
 
 export default function SearchBar() {
   const navigate = useRouter()
@@ -19,10 +20,10 @@ export default function SearchBar() {
   }
 
   return (
-    <div>
+    <div className={styles.search}>
       <form onSubmit={handleSubmit}>
         <input
-          
+          className={styles.searchForm}
           type='text'
           placeholder='Search for movies'
           value={inputVal}
