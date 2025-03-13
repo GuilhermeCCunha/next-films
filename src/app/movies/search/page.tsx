@@ -1,8 +1,7 @@
 import { MovieProps } from '@/utils/types/movie'
 import styles from "./styles.module.scss";
-import Link from 'next/link';
 import { searchMovies } from '@/utils/get-data';
-import { IMG_BASE_URL } from '@/utils/tmdb';
+import MovieCard from '@/components/moviecard';
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ name: string }> }) {
  
@@ -17,15 +16,11 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
   const movies: MovieProps[] = await searchMovies(search.name)
 
   return (
-    <div className={styles.containerMovies}>
+    <div className={styles.moviesContainer}>
       {movies?.length === 0 && <span>Nothing has been found</span>}
       {movies.map((movie) => {
         return (
-          <article key={movie.id}>
-            <strong>{movie.title}</strong>
-            <img src={`${IMG_BASE_URL}/original${movie.backdrop_path}`} alt={movie.title} />
-            <Link href={`/movie/${movie.id}`}>View Details</Link>
-          </article>
+          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.backdrop_path} />
         )
       })}
     </div>
