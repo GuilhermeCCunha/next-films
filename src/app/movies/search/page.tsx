@@ -13,7 +13,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 export default async function Search({ searchParams }: { searchParams: Promise<{ name: string }> }) {
  
   const search = await searchParams
-  const movies: MovieProps[] = await searchMovies(search.name)
+  const movies: MovieProps['results'] = await searchMovies(search.name)
 
   return (
     <div className={styles.moviesContainer}>

@@ -4,7 +4,8 @@ import { getMovies } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';
 
 export default async function Home(){
-  const movies: MovieProps[] = await getMovies()
+  const movieprops: MovieProps = await getMovies(1)
+  const movies: MovieProps['results'] = movieprops.results
 
   return(
     <div>
