@@ -1,0 +1,30 @@
+.blink {
+    font-weight: 700;
+    font-size: 170%;
+    margin-left: 30px;
+    margin-bottom: 5px;
+    animation: blink 1s steps(1, end) infinite;
+}
+  
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.message {
+  font-weight: 700;
+  font-size: 115%;
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
+.button {
+  padding: 50px;
+}

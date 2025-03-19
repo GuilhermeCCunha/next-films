@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { getMovies } from "@/utils/get-data";
 import { MovieProps } from "@/utils/types/movie";
+import styles from './styles.module.scss';
 import MovieCard from "../moviecard";
 
 export default function LoadMore() {
@@ -57,10 +58,10 @@ export default function LoadMore() {
         {!completed ?
           <div ref={ref}>
             {inView && isLoading && (
-              <p>Loading...</p>
+              <p className={styles.blink}>Loading...</p>
             )}
           </div>
-          : <p>No more movies to load</p>
+          : <p className={styles.message}>No more movies to load</p>
         } 
       </section>
     </>
