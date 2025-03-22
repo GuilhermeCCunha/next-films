@@ -2,7 +2,6 @@
   max-width: 800px;
   margin: 14px auto;
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 
@@ -10,4 +9,5 @@
   font-size: 20px;
   font-weight: 700;
   margin-right: 140px;
+  align-self: center;
 }

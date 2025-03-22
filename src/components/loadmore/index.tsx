@@ -1,27 +1,43 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-import { getMovies } from "@/utils/get-data";
+import { getMovies, searchMovies } from "@/utils/get-data";
 import { MovieProps } from "@/utils/types/movie";
 import styles from './styles.module.scss';
 import MovieCard from "../moviecard";
 
-export default function LoadMore() {
+type LoadMoreProps = { mode?: string, url?: string }
+
+export default function LoadMore(props: LoadMoreProps) {
   const { ref, inView } = useInView();
   const [data, setData] = useState<MovieProps['results']>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [page, setPage] = useState<number>(2)
   const [totalPages, setTotalPages] = useState<MovieProps['total_pages']>(3)
   const [completed, setCompleted] = useState<boolean>(false)
+
+  const {mode = "Home", url = ""} = props;
+
+  function loadPage(movies: MovieProps['results']) {
+    setData([...data, ...movies]);
+    setPage(page + 1);
+  }
   
   useEffect(() => {
     setCompleted(false);
     setData([]);
     setPage(2);
-    getMovies(page).then((res) => {
-      setTotalPages(res?.total_pages);
-    });
-  }, []) 
+    if (mode === 'Home'){
+      getMovies(page).then((res) => {
+        setTotalPages(res?.total_pages);
+      });
+    }
+    if (mode === 'Search'){
+      searchMovies(page, url).then((res) => {
+        setTotalPages(res?.total_pages);
+      });
+    }  
+  }, [url]) 
 
   useEffect(() => {
     if (inView) {
@@ -32,11 +48,16 @@ export default function LoadMore() {
       const delay = 1850;
 
       const timeoutId = setTimeout(() => {
-        getMovies(page).then((res) => {
-          let movies = res.results
-          setData([...data, ...movies]);
-          setPage(page + 1);
-        });
+        if (mode === 'Home') {
+          getMovies(page).then((res) => {
+            loadPage(res.results);
+          });     
+        }
+        if (mode === 'Search') {
+          searchMovies(page, url).then((res) => {
+            loadPage(res.results);
+          });     
+        }
 
         setIsLoading(false);
       }, delay);
