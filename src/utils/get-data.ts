@@ -44,3 +44,14 @@ export async function getMoviesByGenre(genreId: number) {
     throw new Error("Failed to fetch data")
   }
 }
+
+export async function getGenreList() {
+  try{
+    const res = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=en`, { next: { revalidate: 60 * 60 * 24 } })
+    const data = await res.json() 
+    // console.log(data)
+    return data.genres
+  }catch(err){
+    throw new Error("Failed to fetch data")
+  }
+}
