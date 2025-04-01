@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 import { calcTime } from "@/utils/helpers";
 import FavoriteButton from "@/components/favoritebutton";
 import { IMG_BASE_URL } from "@/utils/tmdb";
+import Link from "next/link";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -31,7 +32,9 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
           let isEndofArray: boolean = index === genres.length - 1
           return(
             <li key={genre.id}>
-              {genre.name}
+              <Link href={`/movies/genre/${genre.id}`}>
+                {genre.name}
+              </Link>
               {isEndofArray ? '' : ', '}
             </li>
           )

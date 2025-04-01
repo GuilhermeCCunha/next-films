@@ -29,6 +29,14 @@
   list-style-type: none;
   padding: 0;
   flex-wrap: wrap;
+
+  a{
+    color: inherit; 
+    text-decoration: inherit; 
+    &:hover {
+      opacity: 0.7;  
+    }  
+  }
 }
 
 .details span{

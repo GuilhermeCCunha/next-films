@@ -1,4 +1,5 @@
-import { MovieProps } from '@/utils/types/movie'
+import { MovieProps } from '@/utils/types/movie';
+import styles from "./styles.module.scss";
 import { getGenreList, getMoviesByGenre } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';
 import { Genre } from '@/utils/types/details';
@@ -20,7 +21,7 @@ export default async function MovieGenre(props: { params: Promise<{ id: string }
   const movies: MovieProps['results'] = await getMoviesByGenre(parseInt(id))
 
   return (
-    <div>
+    <div className={styles.moviesContainer}>
       {movies?.length === 0 && notFound()}
       {movies.map((movie) => {
         return (
