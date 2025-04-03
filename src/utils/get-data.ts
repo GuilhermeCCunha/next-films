@@ -33,13 +33,11 @@ export async function searchMovies(page: number, name: string) {
   }
 }
 
-export async function getMoviesByGenre(genreId: number) {
+export async function getMoviesByGenre(page: number, genreId: number) {
   try{
-    const res = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=en&page=1`, { next: { revalidate: 320 } })
+    const res = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=en&page=${page}`, { next: { revalidate: 320 } })
     const data = await res.json() 
-    const movies = data.results.slice(0, 12)
-      // console.log(data)
-    return movies
+    return data
   }catch(err){
     throw new Error("Failed to fetch data")
   }

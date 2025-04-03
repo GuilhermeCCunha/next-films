@@ -18,7 +18,8 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
 export default async function MovieGenre(props: { params: Promise<{ id: string }> }) {
 
   const { id } = await props.params;
-  const movies: MovieProps['results'] = await getMoviesByGenre(parseInt(id))
+  const movieprops: MovieProps = await getMoviesByGenre(1, parseInt(id))
+  const movies: MovieProps['results'] = movieprops.results
 
   return (
     <div className={styles.moviesContainer}>
