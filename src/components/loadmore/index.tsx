@@ -1,12 +1,12 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-import { getMovies, searchMovies } from "@/utils/get-data";
+import { getMovies, getMoviesByGenre, searchMovies } from "@/utils/get-data";
 import { MovieProps } from "@/utils/types/movie";
 import styles from './styles.module.scss';
 import MovieCard from "../moviecard";
 
-type LoadMoreProps = { mode?: string, url?: string }
+type LoadMoreProps = { mode?: string, url?: string | number }
 
 export default function LoadMore(props: LoadMoreProps) {
   const { ref, inView } = useInView();
@@ -32,11 +32,16 @@ export default function LoadMore(props: LoadMoreProps) {
         setTotalPages(res?.total_pages);
       });
     }
-    if (mode === 'Search'){
+    if (mode === 'Search' && typeof url === 'string'){
       searchMovies(page, url).then((res) => {
         setTotalPages(res?.total_pages);
       });
-    }  
+    }
+    if (mode === 'Genre' && typeof url === 'number'){
+      getMoviesByGenre(page, url).then((res) => {
+        setTotalPages(res?.total_pages);
+      });
+    }    
   }, [url]) 
 
   useEffect(() => {
@@ -53,8 +58,13 @@ export default function LoadMore(props: LoadMoreProps) {
             loadPage(res.results);
           });     
         }
-        if (mode === 'Search') {
+        if (mode === 'Search' && typeof url === 'string') {
           searchMovies(page, url).then((res) => {
+            loadPage(res.results);
+          });     
+        }
+        if (mode === 'Genre' && typeof url === 'number') {
+          getMoviesByGenre(page, url).then((res) => {
             loadPage(res.results);
           });     
         }
