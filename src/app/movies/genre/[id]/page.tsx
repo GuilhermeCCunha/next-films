@@ -28,7 +28,7 @@ export default async function MovieGenre(props: { params: Promise<{ id: string }
       {movies?.length === 0 && notFound()}
       {movies.map((movie) => {
         return (
-          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.backdrop_path} />
+          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
         )
       })}
       {

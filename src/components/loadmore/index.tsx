@@ -81,7 +81,7 @@ export default function LoadMore(props: LoadMoreProps) {
       <section>
         {data.map((movie) => {
           return (
-            <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.backdrop_path} />
+            <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
           )
         })}
       </section>

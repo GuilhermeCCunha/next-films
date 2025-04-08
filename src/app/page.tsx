@@ -13,7 +13,7 @@ export default async function Home(){
     <div className={styles.moviesContainer}>
       {movies.map((movie) => {
         return (
-          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.backdrop_path} />
+          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
         )
       })}
       {

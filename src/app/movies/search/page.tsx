@@ -23,7 +23,7 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
       {movies?.length === 0 && <span>Nothing has been found</span>}
       {movies.map((movie) => {
         return (
-          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.backdrop_path} />
+          <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
         )
       })}
       {

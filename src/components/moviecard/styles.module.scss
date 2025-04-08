@@ -1,23 +1,17 @@
 .movieCard {
   width: 100%;
-  max-width: 800px;
+  max-width: 520px;
   background-color: #FFF;
   padding: 15px;
   border-radius: 4px;
   align-self: center;
 }
 
-.movieCard strong{
-  margin-bottom: 14px;
-  text-align: center;
-  font-size: 22px;
-  display: block;
-}
-
 .movieCard img{
-  width: 800px;
+  width: 495px;
+  width: 520px;
   max-width: 100%;
-  max-height: 340px;
+  max-height: 780px;
   object-fit: cover;
   display: block;
   border-top-left-radius: 8px;
@@ -29,7 +23,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px 0;
-  font-size: 24px;
+  font-size: 18px;
   background-color: #116FEB;
   text-decoration: none;
   color: #FFF;
@@ -39,4 +33,83 @@
   &:hover {
     opacity: 0.7;   
   }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  top: -75px;
+  left: 105%;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  animation: tooltipkeys 1s 1;
+  opacity: 1;
+}
+
+@keyframes tooltipkeys {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width : 150px) and (max-width : 780px) {
+
+  .tooltip .tooltiptext {
+    width: 0px;
+    border-radius: 0px;
+    padding: 0px 0;
+    
+    /* Position the tooltip */
+    z-index: 0;
+    top: 0px;
+    top: 0px;
+    left: 0%;
+  }
+
+  .tooltip .tooltiptext::after {
+    top: 0%;
+    right: 0%;
+    margin-top: 0px;
+    border-width: 0px;
+    border-color: transparent;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: hidden;
+  }  
+
 }
