@@ -7,7 +7,10 @@ export default function MovieCard(props: { id: number, title: string, img: strin
 
   return (
     <article className={styles.movieCard} key={props.id}>
-      <img src={`${IMG_BASE_URL}/original${props.img}`} alt={props.title} />
+      {props.img ?
+        <img src={`${IMG_BASE_URL}/original${props.img}`} alt={props.title} />
+        : <img src="/poster-placeholder.jpeg" alt={props.title} />
+      }
       <Link className={styles.tooltip} href={`/movie/${props.id}`}>
         {props.title}
         <span className={styles.tooltiptext}>View Details</span>

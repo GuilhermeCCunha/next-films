@@ -24,7 +24,10 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
   return(
     <div className={styles.details}>
       <h1>{movie.title}</h1>
-      <img src={`${IMG_BASE_URL}/original${movie.backdrop_path}`} alt={movie.title} />
+      {movie.backdrop_path ?
+        <img src={`${IMG_BASE_URL}/original${movie.backdrop_path}`} alt={movie.title} />
+        : <img src="/backdrop-placeholder.jpeg" alt={movie.title} />
+      }
       <ul>
         <li>{`${movie.release_date.substring(0, 4)} `}<span>|</span></li>
         <li>{`${calcTime(movie.runtime)} `}<span>|</span></li>
