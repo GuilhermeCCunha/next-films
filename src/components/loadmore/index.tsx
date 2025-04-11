@@ -5,18 +5,25 @@ import { getMovies, getMoviesByGenre, searchMovies } from "@/utils/get-data";
 import { MovieProps } from "@/utils/types/movie";
 import styles from './styles.module.scss';
 import MovieCard from "../moviecard";
+import { useDataContext } from "@/context/datacontext";
 
 type LoadMoreProps = { mode?: string, url?: string | number }
 
 export default function LoadMore(props: LoadMoreProps) {
   const { ref, inView } = useInView();
-  const [data, setData] = useState<MovieProps['results']>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [page, setPage] = useState<number>(2)
   const [totalPages, setTotalPages] = useState<MovieProps['total_pages']>(3)
-  const [completed, setCompleted] = useState<boolean>(false)
 
   const {mode = "Home", url = ""} = props;
+
+  const { data } = useDataContext();
+  const { setData } = useDataContext();
+  const { page } = useDataContext();
+  const { setPage } = useDataContext();
+  const { oldUrl } = useDataContext();
+  const { setOldUrl } = useDataContext();
+  const { completed } = useDataContext();
+  const { setCompleted } = useDataContext();
 
   function loadPage(movies: MovieProps['results']) {
     setData([...data, ...movies]);
@@ -24,9 +31,11 @@ export default function LoadMore(props: LoadMoreProps) {
   }
   
   useEffect(() => {
-    setCompleted(false);
-    setData([]);
-    setPage(2);
+    if (oldUrl !== url) {
+      setData([]);
+      setPage(2);
+      setCompleted(false);
+    }
     if (mode === 'Home'){
       getMovies(page).then((res) => {
         setTotalPages(res?.total_pages);
@@ -50,6 +59,7 @@ export default function LoadMore(props: LoadMoreProps) {
       if (page > totalPages) {
         setCompleted(true);
       }
+      setOldUrl(url);
       const delay = 1850;
 
       const timeoutId = setTimeout(() => {
