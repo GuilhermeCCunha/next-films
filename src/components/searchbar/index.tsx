@@ -1,22 +1,31 @@
 "use client"
-import { useState } from 'react'
-import { useRouter } from "next/navigation"
+import { useState } from 'react';
+import { useRouter } from "next/navigation";
 import styles from './styles.module.scss';
+import { useSearchParams } from 'next/navigation'
 
 export default function SearchBar() {
   const navigate = useRouter()
-  const [inputVal, setInputVal] = useState<string>("")
+  const router = useRouter();
+  const searchParams = useSearchParams()
+  const search = searchParams.get('name')
+  const [inputVal, setInputVal] = useState<string>(search || "")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputVal(e.target.value)
   }
 
+  const clearInput = () => {
+    setInputVal('')
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    navigate.push(`/movies/search?name=${inputVal}`)
-
-    setInputVal('')
+    let isValid: boolean = !!inputVal.trim()
+    if (isValid) {
+      router.refresh();
+      navigate.push(`/movies/search?name=${inputVal}`)
+    }
   }
 
   return (
@@ -31,6 +40,14 @@ export default function SearchBar() {
           onKeyDown={(e) => e.stopPropagation()}
           onKeyUp={(e) => e.stopPropagation()}
         />
+        {inputVal &&
+          <button
+            onKeyDown={clearInput}
+            onMouseDown={clearInput}
+          >
+            <img src="/close-icon.svg" alt="close-icon" />
+          </button>
+        }
         <input type="submit" value="Search" />
       </form>
     </div>
