@@ -2,25 +2,25 @@
 
 import { Genre } from '@/utils/types/details';
 import React, { ReactNode } from "react";
-import { GenreListContext } from "./genrelistcontext";
+import { GenresContext } from "./genrescontext";
 
 interface IProps {
   genres: Genre[];
   children: ReactNode;
 }
 
-const GenreListContextProvider = ({ genres, children }: IProps) => {
+const GenresContextProvider = ({ genres, children }: IProps) => {
   const genreList: Genre[] = genres;
 
   return (
-    <GenreListContext.Provider
+    <GenresContext.Provider
       value={{
        genreList
       }}
     >
       {children}
-    </GenreListContext.Provider>
+    </GenresContext.Provider>
   );
 };
 
-export default GenreListContextProvider;
+export default GenresContextProvider;
