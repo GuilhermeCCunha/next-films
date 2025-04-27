@@ -10,6 +10,9 @@ interface IDataContext {
   setOldUrl: (url: string | number) => void;
   completed: boolean;
   setCompleted: (completed: boolean) => void;
+  totalPages: number; 
+  setTotalPages: (number: number) => void;
+  clearData: () => void;
 }
 
 export const DataContext = createContext<IDataContext>({
@@ -21,6 +24,9 @@ export const DataContext = createContext<IDataContext>({
   setOldUrl() {},
   completed: false,
   setCompleted() {},
+  totalPages: 3,
+  setTotalPages() {},
+  clearData () {}
 });
 
 export const useDataContext = () => useContext(DataContext);

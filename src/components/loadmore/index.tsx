@@ -11,8 +11,7 @@ type LoadMoreProps = { mode?: string, url?: string | number }
 
 export default function LoadMore(props: LoadMoreProps) {
   const { ref, inView } = useInView();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [totalPages, setTotalPages] = useState<MovieProps['total_pages']>(3)
+  const [isLoading, setIsLoading] = useState<boolean>(true);         
 
   const {mode = "Home", url = ""} = props;
 
@@ -24,6 +23,9 @@ export default function LoadMore(props: LoadMoreProps) {
   const { setOldUrl } = useDataContext();
   const { completed } = useDataContext();
   const { setCompleted } = useDataContext();
+  const { totalPages } = useDataContext();
+  const { setTotalPages } = useDataContext();
+  const { clearData } = useDataContext();
 
   function loadPage(movies: MovieProps['results']) {
     setData([...data, ...movies]);
@@ -32,9 +34,7 @@ export default function LoadMore(props: LoadMoreProps) {
   
   useEffect(() => {
     if (oldUrl !== url) {
-      setData([]);
-      setPage(2);
-      setCompleted(false);
+      clearData();
     }
     if (mode === 'Home'){
       getMovies(page).then((res) => {
@@ -75,7 +75,7 @@ export default function LoadMore(props: LoadMoreProps) {
         }
         if (mode === 'Genre' && typeof url === 'number') {
           getMoviesByGenre(page, url).then((res) => {
-            loadPage(res.results);
+            loadPage((res.results));
           });     
         }
 

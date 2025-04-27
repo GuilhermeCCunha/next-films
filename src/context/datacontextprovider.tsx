@@ -1,4 +1,5 @@
 "use client";
+
 import { MovieProps } from "@/utils/types/movie";
 import React, { ReactNode, useState } from "react";
 import { DataContext } from "./datacontext";
@@ -12,6 +13,13 @@ const DataContextProvider = ({ children }: IProps) => {
   const [page, setPage] = useState<number>(2);
   const [oldUrl, setOldUrl] = useState<string | number>("");
   const [completed, setCompleted] = useState<boolean>(false);
+  const [totalPages, setTotalPages] = useState<MovieProps['total_pages']>(3)
+  const clearData = () => {
+    setData([]);
+    setPage(2);
+    setCompleted(false);
+    setTotalPages(3);
+  };
 
   return (
     <DataContext.Provider
@@ -24,6 +32,9 @@ const DataContextProvider = ({ children }: IProps) => {
        setOldUrl,
        completed, 
        setCompleted,
+       totalPages,   
+       setTotalPages,
+       clearData
       }}
     >
       {children}
