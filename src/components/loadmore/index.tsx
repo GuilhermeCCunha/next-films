@@ -10,6 +10,7 @@ import { useDataContext } from "@/context/datacontext";
 type LoadMoreProps = { mode?: string, url?: string | number }
 
 export default function LoadMore(props: LoadMoreProps) {
+  const MAX_PAGES = 500; // See error code 22 at https://developer.themoviedb.org/docs/errors 
   const { ref, inView } = useInView();
   const [isLoading, setIsLoading] = useState<boolean>(true);         
 
@@ -56,7 +57,7 @@ export default function LoadMore(props: LoadMoreProps) {
   useEffect(() => {
     if (inView) {
       setIsLoading(true);
-      if (page > totalPages) {
+      if (page > totalPages || page > MAX_PAGES) {
         setCompleted(true);
       }
       setOldUrl(url);
