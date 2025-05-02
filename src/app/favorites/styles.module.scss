@@ -15,8 +15,7 @@
 }
 
 .favorites ul {
-    max-width: 720px;
-    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .favorites ul li {
@@ -31,6 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 70%;
 }
 
 .favorites div a {
@@ -58,4 +58,29 @@
         color: #FFF;
         background-color: crimson;
     }
+}
+
+@media only screen and (max-width : 780px) {
+    .favorites h1 {
+        font-size: 25px;
+    }    
+
+    .favorites span {
+        margin-left: 6px;
+        font-size: 15px;
+        margin-right: 5%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .favorites div a {
+        margin-right: 6px;
+        font-size: 14px;
+    }
+    
+    .favorites button {
+        font-size: 14px;
+        padding: 10px 6px;
+    }
+
 }
