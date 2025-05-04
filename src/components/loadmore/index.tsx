@@ -7,7 +7,8 @@ import styles from './styles.module.scss';
 import MovieCard from "../moviecard";
 import { useDataContext } from "@/context/datacontext";
 
-type LoadMoreProps = { mode?: string, url?: string | number }
+type Mode = 'Home' | 'Search' | 'Genre'
+type LoadMoreProps = { mode?: Mode, url?: string | number }
 
 export default function LoadMore(props: LoadMoreProps) {
   const MAX_PAGES = 500; // See error code 22 at https://developer.themoviedb.org/docs/errors 
