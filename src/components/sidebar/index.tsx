@@ -9,11 +9,14 @@ export default function SideBar() {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const { genreList } = useGenresContext();
   const pathname = usePathname();
-  
+  let isTransparent = !isOpen && pathname.startsWith("/movie/");
+
   return (
     <>
       <button
-        className={`${styles.sidebarButton} ${isOpen && styles.open}`}
+        className={`${styles.sidebarButton} ${isOpen && styles.open} ${
+          isTransparent && styles.transparent
+        }`}
         onClick={() => setIsOpen(!isOpen)}
       >
         &nbsp; Genres &nbsp;
