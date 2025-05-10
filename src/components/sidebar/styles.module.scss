@@ -106,23 +106,21 @@ div.content {
     opacity: 0.2;
   }
 
-  .transparent:hover {
-
-    transition: height 0.5s, width 0.9s, opacity 5s; 
-    opacity: 1;
-  }
-
-  .transparent:focus {
-
-    transition: height 0.5s, width 0.9s, opacity 5s; 
-  }
-
   .open {
     width: 16%;
     height: 35px;
     opacity: 1;
   }
- 
+
+  .sidebarButton:hover {
+    transition: height 0.5s, width 0.9s, opacity 5s; 
+    opacity: 1;
+  }
+  
+  .sidebarButton:focus {
+    transition: height 0.5s, width 0.9s, opacity 5s;
+  }
+    
 }  
 
 @media screen and (max-width: 780px) {
