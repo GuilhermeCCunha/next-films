@@ -1,78 +1,78 @@
 .search {
-    width: 270px;
-    border: 2px solid lightgrey;
-    overflow: auto;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    background-color: #FFF;
+  width: 270px;
+  border: 2px solid lightgrey;
+  overflow: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: #FFF;
 
-    &:has(input[type="text"]:focus) {
-        border: 2px solid crimson;
-    }
+  &:has(input[type="text"]:focus) {
+    border: 2px solid crimson;
+  }
 }
 
 .search button {
-    border: 0px;
-    background-color: transparent;
-    cursor: pointer;
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.search img{
-    width: 16px;
-    height: 14px;
-    margin-bottom: -2px;
-}
-
-.search input[type="text"] {
-    border: 0px;
-    max-width: 65%;
-    padding: 10px 10px;
+.search img {
+  width: 16px;
+  height: 14px;
+  margin-bottom: -2px;
 }
 
 .search input[type="text"] {
-    &:focus {
-        outline: 0;
-    }
+  border: 0px;
+  max-width: 65%;
+  padding: 10px 10px;
+}
+
+.search input[type="text"] {
+  &:focus {
+    outline: 0;
+  }
 }
 
 .search input[type="submit"] {
-    border: 0px;
-    background: none;
-    background-color: crimson;
-    color: #FFF;
-    float: right;
-    padding: 10px 2px;
-    cursor: pointer;
-    width: 28%;
+  border: 0px;
+  background: none;
+  background-color: crimson;
+  color: #FFF;
+  float: right;
+  padding: 10px 2px;
+  cursor: pointer;
+  width: 28%;
 }
 
 
 @media only screen and (max-width : 780px) {
-    .search {
-        width: 95%;
-        margin: 0 auto;
-    }
+  .search {
+    width: 95%;
+    margin: 0 auto;
+  }
 
-    .search input[type="text"] {
-        border: 0px;
-        width: 65%;
-        max-width: 78%;
-        padding: 10px 7px;
-    }
+  .search input[type="text"] {
+    border: 0px;
+    width: 65%;
+    max-width: 78%;
+    padding: 10px 7px;
+  }
 
-    .search input[type="submit"] {
-        width: 25%;
-    }
+  .search input[type="submit"] {
+    width: 25%;
+  }
 
-    .search button {
-        margin-right: -8px;
-    }
+  .search button {
+    margin-right: -8px;
+  }
 
-    .search img{
-        width: 16px;
-        height: 16px;
-        margin-bottom: -4px;
-    }
+  .search img {
+    width: 16px;
+    height: 16px;
+    margin-bottom: -4px;
+  }
 
 }
