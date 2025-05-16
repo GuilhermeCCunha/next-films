@@ -5,6 +5,7 @@ import { calcTime } from "@/utils/helpers";
 import FavoriteButton from "@/components/favoritebutton";
 import { IMG_BASE_URL } from "@/utils/tmdb";
 import Link from "next/link";
+import BackButton from "@/components/backbutton";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -49,6 +50,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <strong>⭐ {movie.vote_average} / 10</strong>
 
       <div className={styles.containerButtons}>
+        <BackButton />
         <FavoriteButton id={movie.id.toString()} />
         <div>
           <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} Official Trailer`}>
