@@ -5,6 +5,7 @@ import { calcTime } from "@/utils/helpers";
 import FavoriteButton from "@/components/favoritebutton";
 import { IMG_BASE_URL } from "@/utils/tmdb";
 import Link from "next/link";
+import BackButton from "@/components/backbutton";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -31,14 +32,12 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <ul>
         <li>{`${movie.release_date.substring(0, 4)} `}<span>|</span></li>
         <li>{`${calcTime(movie.runtime)} `}<span>|</span></li>
-        {genres.map((genre, index) => {
-          let isEndofArray: boolean = index === genres.length - 1
+        {genres.map((genre) => {
           return(
             <li key={genre.id}>
-              <Link href={`/movies/genre/${genre.id}`}>
+              <Link className={styles.genres} href={`/movies/genre/${genre.id}`}>
                 {genre.name}
               </Link>
-              {isEndofArray ? '' : ', '}
             </li>
           )
         })} 
@@ -49,6 +48,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <strong>⭐ {movie.vote_average} / 10</strong>
 
       <div className={styles.containerButtons}>
+        <BackButton />
         <FavoriteButton id={movie.id.toString()} />
         <div>
           <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} Official Trailer`}>
