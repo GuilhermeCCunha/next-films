@@ -53,3 +53,13 @@ export async function getGenreList() {
     throw new Error("Failed to fetch data")
   }
 }
+
+export async function getVideos(id: number) {
+  try{
+    const res = await fetch(`${API_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en`, { next: { revalidate: 320 } })
+    const data = await res.json()
+    return data.results
+  }catch (err) {
+    throw new Error("Failed to fetch data")
+  }
+}
