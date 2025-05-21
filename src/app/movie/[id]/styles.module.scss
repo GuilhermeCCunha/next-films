@@ -43,11 +43,7 @@
   margin: 8px 0;
 }
 
-.containerButtons div{
-  background-color: #F0F0F0
-}
-
-.containerButtons div,
+.containerButtons a,
 .containerButtons button {
   display:inline-block;
   margin-right: 12px;
@@ -60,6 +56,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.5s;
+  background-color: #F0F0F0;
 
   &:hover {
     background-color: crimson;

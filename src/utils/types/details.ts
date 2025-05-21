@@ -12,3 +12,11 @@ export interface Genre {
   id: number;
   name: string;
 }
+
+export interface Video {
+  name: string;
+  key: string;
+  site: string;
+  type: string;
+  official: boolean;
+}
