@@ -17,14 +17,14 @@ export const setSavedMovies = (movies: MovieDetailsProps[]) => {
   localStorage.setItem("nextfilms", JSON.stringify(movies))
 }
 
-export const verifyMovie = (id: string): boolean => {
+export const verifyMovie = (id: number): boolean => {
   const hasMovie: boolean = getSavedMovies().some(
-    (savedMovies: { id: number }) => savedMovies.id === parseInt(id)
+    (savedMovies: { id: number }) => savedMovies.id === id
   )
   return hasMovie
 }
 
-export async function addMovie(id: string) {
+export async function addMovie(id: number) {
   const movie: MovieDetailsProps = await getMovieDetails(id)
 
   if (verifyMovie(id)) {
@@ -36,10 +36,10 @@ export async function addMovie(id: string) {
   setSavedMovies(movies);
 }
 
-export function removeMovie(id: string) {
+export function removeMovie(id: number) {
   let movies = getSavedMovies();
   let filteredMovies = movies.filter((item: { id: number; }) => {
-    return (item.id !== parseInt(id))
+    return (item.id !== id)
   })
   setSavedMovies(filteredMovies);
   return filteredMovies

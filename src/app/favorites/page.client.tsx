@@ -14,7 +14,7 @@ export default function PageClient() {
   }, [])
 
   function deleteMovie(id: number) {
-    let filteredMovies = removeMovie(id.toString());
+    let filteredMovies = removeMovie(id);
     setMovies(filteredMovies);
   }
 

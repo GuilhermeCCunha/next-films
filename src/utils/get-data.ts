@@ -11,7 +11,7 @@ export async function getMovies(page: number) {
   }
 }
 
-export async function getMovieDetails(id: string) { 
+export async function getMovieDetails(id: number) { 
   const res = await fetch(`${API_URL}/movie/${id}?api_key=${API_KEY}&language=en`, { next: { revalidate: 320 } })
   const movie = await res.json() 
     // console.log(movie)

@@ -11,7 +11,7 @@ import VideoLink from "@/components/videolink";
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params; 
-  const movie: MovieDetailsProps = await getMovieDetails(id) 
+  const movie: MovieDetailsProps = await getMovieDetails(parseInt(id)) 
  
   return {
     title: movie.title,
@@ -20,7 +20,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
 
 export default async function Movie(props: { params: Promise<{ id: string }> }) {
   const { id } = await props.params;    
-  const movie: MovieDetailsProps = await getMovieDetails(id)
+  const movie: MovieDetailsProps = await getMovieDetails(parseInt(id))
   const genres = movie.genres
 
   return(
@@ -50,7 +50,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
 
       <div className={styles.containerButtons}>
         <BackButton />
-        <FavoriteButton id={movie.id.toString()} />
+        <FavoriteButton id={movie.id} />
         <VideoLink id={movie.id} />
       </div>
 

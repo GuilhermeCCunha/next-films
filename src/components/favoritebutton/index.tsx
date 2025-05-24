@@ -2,7 +2,7 @@
 import { removeMovie, addMovie, verifyMovie } from "@/utils/helpers";
 import { useEffect, useState } from "react";
 
-export default function FavoriteButton(props: { id: string }) {
+export default function FavoriteButton(props: { id: number }) {
   const [hasMovie, setHasMovie] = useState<boolean | null>(null)
 
   useEffect(() => {
