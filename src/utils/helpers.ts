@@ -10,7 +10,12 @@ export const calcTime = (time: number): string => {
 export const getSavedMovies = (): Array<MovieDetailsProps> => {
   const savedMovies: string = localStorage.getItem("nextfilms") || '[]';
   let movies: Array<MovieDetailsProps>
-  return movies = JSON.parse(savedMovies) || [];
+  try {
+    movies = JSON.parse(savedMovies) || [];
+  } catch (e) {
+    movies = []
+  }
+  return movies
 }
 
 export const setSavedMovies = (movies: MovieDetailsProps[]) => {
