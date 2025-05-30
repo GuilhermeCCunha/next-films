@@ -19,7 +19,7 @@ export default function SideBar() {
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        &nbsp; Genres &nbsp;
+        &nbsp; Movie Lists &nbsp;
       </button>
       <div className={`${styles.sidebar} ${!isOpen && styles.hiddenSidebar}`}>
         {genreList.map((genre) => {
@@ -35,7 +35,8 @@ export default function SideBar() {
           );
         })}
         <Link className={`${pathname === "/" && styles.active}`} href="/">
-          Home
+          <span className={styles.default}>Home Page</span> 
+          <span className={styles.alternative}>Now Playing</span>
         </Link>
       </div>
     </>
