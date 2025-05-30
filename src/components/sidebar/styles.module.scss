@@ -1,7 +1,7 @@
 .sidebarButton {
   font-weight: 700;
   text-align: left;
-  width: 7%;
+  width: 9.5%;
   height: 35px;
   border: none;
   background: linear-gradient(#2D2D2D, #000);
@@ -24,7 +24,7 @@
   border: none;
 }
 
-.sidebarButton:after{
+.sidebarButton:after {
   content: "";
   display: inline-block;
   background: url('/right-arrow.svg') no-repeat;
@@ -33,7 +33,7 @@
   height: 10px;
 }
 
-.open:before{
+.open:before {
   content: "";
   display: inline-block;
   background: url('/left-arrow.svg') no-repeat;
@@ -43,10 +43,10 @@
   height: 10px;
 }
 
-.open:after{
+.open:after {
   content: "";
   display: inline-block;
-  background: none; 
+  background: none;
   width: 0px;
   background-size: contain;
   height: 0px;
@@ -67,26 +67,48 @@
 }
 
 .hiddenSidebar {
-  left: -16%; 
+  left: -16%;
   transition: left 0.8s;
 }
 
 .sidebar a {
   display: block;
   color: black;
-  padding: 16px;
   padding: 7px;
   text-decoration: none;
+
+  .alternative {
+    display: none;
+  }
+
 }
- 
+
 .sidebar a.active {
-  background-color:  #3D3D3D;
+  background-color: #3D3D3D;
   color: white;
+
+  .default {
+    display: none;
+  }
+
+  .alternative {
+    display: inline;
+  }
+
 }
 
 .sidebar a:hover:not(.active) {
   background-color: #7A7A7A;
   color: white;
+
+  .default {
+    display: none;
+  }
+
+  .alternative {
+    display: inline;
+  }
+
 }
 
 div.content {
@@ -97,7 +119,7 @@ div.content {
 
 @media screen and (max-width: 1040px) {
   .sidebarButton {
-    width: 10%;
+    width: 12.75%;
     height: 32px;
   }
 
@@ -113,15 +135,15 @@ div.content {
   }
 
   .sidebarButton:hover {
-    transition: height 0.5s, width 0.9s, opacity 5s; 
+    transition: height 0.5s, width 0.9s, opacity 5s;
     opacity: 1;
   }
-  
+
   .sidebarButton:focus {
     transition: height 0.5s, width 0.9s, opacity 5s;
   }
-    
-}  
+
+}
 
 @media screen and (max-width: 780px) {
   .sidebar {
@@ -135,7 +157,10 @@ div.content {
     text-align: center;
     float: none;
   }
-   div.content {margin-left: 0;}
+
+  div.content {
+    margin-left: 0;
+  }
 
    .hiddenSidebar {
     display: none 
