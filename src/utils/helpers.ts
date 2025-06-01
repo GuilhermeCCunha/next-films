@@ -49,3 +49,12 @@ export function removeMovie(id: number) {
   setSavedMovies(filteredMovies);
   return filteredMovies
 }
+
+export function uniqueById<T extends { id: number }>(items: T[]): T[] {
+  const set = new Set();
+  return items.filter((item) => {
+    const isDuplicate = set.has(item.id);
+    set.add(item.id);
+    return !isDuplicate;
+  });
+}
