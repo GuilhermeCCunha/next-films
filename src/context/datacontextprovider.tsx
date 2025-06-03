@@ -14,11 +14,14 @@ const DataContextProvider = ({ children }: IProps) => {
   const [oldUrl, setOldUrl] = useState<string | number>("");
   const [completed, setCompleted] = useState<boolean>(false);
   const [totalPages, setTotalPages] = useState<MovieProps['total_pages']>(3)
+  const [pageOneSize, setPageOneSize] = useState<number>(0)
+
   const clearData = () => {
     setData([]);
     setPage(2);
     setCompleted(false);
     setTotalPages(3);
+    setPageOneSize(0);
   };
 
   return (
@@ -34,6 +37,8 @@ const DataContextProvider = ({ children }: IProps) => {
        setCompleted,
        totalPages,   
        setTotalPages,
+       pageOneSize, 
+       setPageOneSize,
        clearData
       }}
     >

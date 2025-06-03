@@ -12,6 +12,8 @@ interface IDataContext {
   setCompleted: (completed: boolean) => void;
   totalPages: number; 
   setTotalPages: (number: number) => void;
+  pageOneSize: number; 
+  setPageOneSize: (number: number) => void;
   clearData: () => void;
 }
 
@@ -26,6 +28,8 @@ export const DataContext = createContext<IDataContext>({
   setCompleted() {},
   totalPages: 3,
   setTotalPages() {},
+  pageOneSize: 0, 
+  setPageOneSize() {},
   clearData () {}
 });
 

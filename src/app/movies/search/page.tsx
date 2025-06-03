@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { searchMovies } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';
 import LoadMore from '@/components/loadmore';
+import { uniqueById } from '@/utils/helpers';
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ name: string }> }) {
 
@@ -15,7 +16,7 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
 
   const search = await searchParams
   const movieprops: MovieProps = await searchMovies(1, search.name)
-  const movies: MovieProps['results'] = movieprops.results
+  const movies: MovieProps['results'] = uniqueById(movieprops.results)
   const totalPages: MovieProps['total_pages'] = movieprops.total_pages
 
   return (

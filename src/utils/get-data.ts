@@ -3,7 +3,7 @@ import { API_KEY, API_URL } from "./tmdb";
 
 export async function getMovies(page: number) {
   try{
-    const res = await fetch(`${API_URL}/movie/now_playing?api_key=${API_KEY}&language=en&page=${page}`, { next: { revalidate: 320 } })
+    const res = await fetch(`${API_URL}/movie/now_playing?api_key=${API_KEY}&language=en&page=${page}`, { next: { revalidate: 120 } })
     const data = await res.json() 
     return data
   }catch(err){
@@ -25,7 +25,7 @@ export async function getMovieDetails(id: number) {
 
 export async function searchMovies(page: number, name: string) {
   try{
-    const res = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&query=${name}&language=en&page=${page}`, { next: { revalidate: 320 } })
+    const res = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&query=${name}&language=en&page=${page}`, { next: { revalidate: 120 } })
     const data = await res.json() 
     return data
   }catch(err){
@@ -35,7 +35,7 @@ export async function searchMovies(page: number, name: string) {
 
 export async function getMoviesByGenre(page: number, genreId: number) {
   try{
-    const res = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=en&page=${page}`, { next: { revalidate: 320 } })
+    const res = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=en&page=${page}`, { next: { revalidate: 120 } })
     const data = await res.json() 
     return data
   }catch(err){

@@ -6,6 +6,7 @@ import { MovieProps } from "@/utils/types/movie";
 import styles from './styles.module.scss';
 import MovieCard from "../moviecard";
 import { useDataContext } from "@/context/datacontext";
+import { uniqueById } from "@/utils/helpers";
 
 type LoadMoreProps = {
   mode?: "Home";
@@ -35,12 +36,19 @@ export default function LoadMore(props: LoadMoreProps) {
   const { setCompleted } = useDataContext();
   const { totalPages } = useDataContext();
   const { setTotalPages } = useDataContext();
+  const { pageOneSize } = useDataContext();
+  const { setPageOneSize } = useDataContext();
   const { clearData } = useDataContext();
-
+    
   function loadPage(movies: MovieProps['results']) {
-    setData([...data, ...movies]);
-    setPage(page + 1);
+    setData(uniqueById([...data, ...movies]));
+    setPage(page + 1);    
   }
+
+  function pageOneData(movies: MovieProps["results"]) {
+    setPageOneSize(movies.length);
+    setData(uniqueById([...data, ...movies]));
+  }  
   
   useEffect(() => {
     if (oldUrl !== url) {
@@ -70,6 +78,33 @@ export default function LoadMore(props: LoadMoreProps) {
         setCompleted(true);
       }
       setOldUrl(url);
+
+      if (mode === 'Home' && page === 2 && pageOneSize === 0) {
+        getMovies(1).then((res) => {
+          pageOneData(res.results);
+        });
+      }
+      if (
+        mode === 'Search' &&
+        typeof url === 'string' &&
+        page === 2 &&
+        pageOneSize === 0
+      ) {
+        searchMovies(1, url).then((res) => {
+          pageOneData(res.results);
+        });
+      }
+      if (
+        mode === 'Genre' &&
+        typeof url === 'number' &&
+        page === 2 &&
+        pageOneSize === 0
+      ) {
+        getMoviesByGenre(1, url).then((res) => {
+          pageOneData(res.results);
+        });
+      }
+
       const delay = 1850;
 
       const timeoutId = setTimeout(() => {
@@ -85,8 +120,8 @@ export default function LoadMore(props: LoadMoreProps) {
         }
         if (mode === 'Genre' && typeof url === 'number') {
           getMoviesByGenre(page, url).then((res) => {
-            loadPage((res.results));
-          });     
+            loadPage(res.results);
+          });
         }
 
         setIsLoading(false);
@@ -99,7 +134,7 @@ export default function LoadMore(props: LoadMoreProps) {
   return (
     <>
       <section>
-        {data.map((movie) => {
+        {data.slice(pageOneSize).map((movie) => {
           return (
             <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
           )
