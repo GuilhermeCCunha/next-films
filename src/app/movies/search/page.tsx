@@ -29,7 +29,7 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
       })}
       {
         totalPages > 1 &&
-        <LoadMore mode="Search" url={search.name} />
+        <LoadMore mode="Search" url={search.name} pageOneData={movies}/>
       }
     </div>
   )

@@ -11,12 +11,15 @@ import { uniqueById } from "@/utils/helpers";
 type LoadMoreProps = {
   mode?: "Home";
   url?: string | number;
+  pageOneData: MovieProps["results"]
 } | {
   mode: "Search";
   url: string;
+  pageOneData: MovieProps["results"]
 } | {
   mode: "Genre";
   url: number;
+  pageOneData: MovieProps["results"]
 };
 
 export default function LoadMore(props: LoadMoreProps) {
@@ -24,7 +27,7 @@ export default function LoadMore(props: LoadMoreProps) {
   const { ref, inView } = useInView();
   const [isLoading, setIsLoading] = useState<boolean>(true);         
 
-  const {mode = "Home", url = ""} = props;
+  const {mode = "Home", url = "", pageOneData = []} = props;
 
   const { data } = useDataContext();
   const { setData } = useDataContext();
@@ -44,12 +47,7 @@ export default function LoadMore(props: LoadMoreProps) {
     setData(uniqueById([...data, ...movies]));
     setPage(page + 1);    
   }
-
-  function pageOneData(movies: MovieProps["results"]) {
-    setPageOneSize(movies.length);
-    setData(uniqueById([...data, ...movies]));
-  }  
-  
+   
   useEffect(() => {
     if (oldUrl !== url) {
       clearData();
@@ -79,30 +77,9 @@ export default function LoadMore(props: LoadMoreProps) {
       }
       setOldUrl(url);
 
-      if (mode === 'Home' && page === 2 && pageOneSize === 0) {
-        getMovies(1).then((res) => {
-          pageOneData(res.results);
-        });
-      }
-      if (
-        mode === 'Search' &&
-        typeof url === 'string' &&
-        page === 2 &&
-        pageOneSize === 0
-      ) {
-        searchMovies(1, url).then((res) => {
-          pageOneData(res.results);
-        });
-      }
-      if (
-        mode === 'Genre' &&
-        typeof url === 'number' &&
-        page === 2 &&
-        pageOneSize === 0
-      ) {
-        getMoviesByGenre(1, url).then((res) => {
-          pageOneData(res.results);
-        });
+      if (page === 2 && pageOneSize === 0) {
+        setPageOneSize(pageOneData.length);
+        setData([...data, ...pageOneData]);
       }
 
       const delay = 1850;

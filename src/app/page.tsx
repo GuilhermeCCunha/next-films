@@ -19,7 +19,7 @@ export default async function Home(){
       })}
       {
         totalPages > 1 &&
-        <LoadMore />
+        <LoadMore pageOneData={movies}/>
       }
     </div>
   )

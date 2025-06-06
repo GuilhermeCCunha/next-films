@@ -34,7 +34,7 @@ export default async function MovieGenre(props: { params: Promise<{ id: string }
       })}
       {
         totalPages > 1 &&
-        <LoadMore mode="Genre" url={parseInt(id)} />
+        <LoadMore mode="Genre" url={parseInt(id)} pageOneData={movies}/>
       }      
     </div>
   )
