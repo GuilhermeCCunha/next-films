@@ -18,6 +18,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+You will need a [TMDB account](https://www.themoviedb.org/signup) and an API key. In the project root folder, rename the file `.env.local.example` to `.env.local`:
+
+Inside this file, you will see this line: 
+
+```dotenv  
+NEXT_PUBLIC_API_KEY=********************************
+```
+Replace the asterisks with your personal API key.
+
 First, run the development server:
 
 ```bash
