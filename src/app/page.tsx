@@ -4,6 +4,7 @@ import { getMovies } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';
 import LoadMore from '@/components/loadmore';
 import { uniqueById } from '@/utils/helpers';
+import MoviesWrapper from '@/components/movieswrapper';
 
 export default async function Home(){
   const movieprops: MovieProps = await getMovies(1)
@@ -11,7 +12,7 @@ export default async function Home(){
   const totalPages: MovieProps['total_pages'] = movieprops.total_pages
 
   return (
-    <div className={styles.moviesContainer}>
+    <MoviesWrapper>
       {movies.map((movie) => {
         return (
           <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
@@ -21,6 +22,6 @@ export default async function Home(){
         totalPages > 1 &&
         <LoadMore pageOneData={movies}/>
       }
-    </div>
+    </MoviesWrapper>
   )
 }

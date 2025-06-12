@@ -1,11 +1,11 @@
 import { MovieProps } from '@/utils/types/movie';
-import styles from "./styles.module.scss";
 import { getGenreList, getMoviesByGenre } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';
 import { Genre } from '@/utils/types/details';
 import { notFound } from 'next/navigation'
 import LoadMore from '@/components/loadmore';
 import { uniqueById } from '@/utils/helpers';
+import MoviesWrapper from '@/components/movieswrapper';
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
   const genrelist: Genre[] = await getGenreList()
@@ -25,7 +25,7 @@ export default async function MovieGenre(props: { params: Promise<{ id: string }
   const totalPages: MovieProps['total_pages'] = movieprops.total_pages
 
   return (
-    <div className={styles.moviesContainer}>
+    <MoviesWrapper>
       {movies?.length === 0 && notFound()}
       {movies.map((movie) => {
         return (
@@ -36,6 +36,6 @@ export default async function MovieGenre(props: { params: Promise<{ id: string }
         totalPages > 1 &&
         <LoadMore mode="Genre" url={parseInt(id)} pageOneData={movies}/>
       }      
-    </div>
+    </MoviesWrapper>
   )
 }

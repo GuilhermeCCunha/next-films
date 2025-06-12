@@ -4,6 +4,7 @@ import { searchMovies } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';
 import LoadMore from '@/components/loadmore';
 import { uniqueById } from '@/utils/helpers';
+import MoviesWrapper from '@/components/movieswrapper';
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ name: string }> }) {
 
@@ -20,8 +21,8 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
   const totalPages: MovieProps['total_pages'] = movieprops.total_pages
 
   return (
-    <div className={styles.moviesContainer}>
-      {movies?.length === 0 && <span>Nothing has been found</span>}
+    <MoviesWrapper>
+      {movies?.length === 0 && <span className={styles.message}>Nothing has been found</span>}
       {movies.map((movie) => {
         return (
           <MovieCard key={movie.id} id={movie.id} title={movie.title} img={movie.poster_path} />
@@ -31,6 +32,6 @@ export default async function Search({ searchParams }: { searchParams: Promise<{
         totalPages > 1 &&
         <LoadMore mode="Search" url={search.name} pageOneData={movies}/>
       }
-    </div>
+    </MoviesWrapper>
   )
 }
