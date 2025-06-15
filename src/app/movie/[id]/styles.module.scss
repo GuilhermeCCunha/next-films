@@ -43,37 +43,6 @@
   margin: 8px 0;
 }
 
-.containerButtons a,
-.containerButtons button {
-  display:inline-block;
-  margin-right: 12px;
-  margin-top: 14px;
-  margin-left: 0;
-  font-size: 20px;
-  border: 0;
-  outline: none;
-  padding: 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.5s;
-  background-color: #F0F0F0;
-
-  &:hover {
-    background-color: crimson;
-    color: #FFF;
-  }
-}
-
-.containerButtons a{
-  text-decoration: none;
-  color:#000;
-  transition: all 0.5s;
-
-  &:hover{
-    color: #FFF;
-  }
-}
-
 .details li{
   margin-top: 5px;
   margin-bottom: 7px;

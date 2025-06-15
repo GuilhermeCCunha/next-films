@@ -7,6 +7,7 @@ import { IMG_BASE_URL } from "@/utils/tmdb";
 import Link from "next/link";
 import BackButton from "@/components/backbutton";
 import VideoLink from "@/components/videolink";
+import ButtonsWrapper from "@/components/buttonswrapper";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -48,11 +49,11 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
       <span>{movie.overview}</span>
       <strong>⭐ {movie.vote_average} / 10</strong>
 
-      <div className={styles.containerButtons}>
+      <ButtonsWrapper>
         <BackButton />
         <FavoriteButton id={movie.id} />
         <VideoLink id={movie.id} />
-      </div>
+      </ButtonsWrapper>
 
     </div>
   )
