@@ -8,6 +8,7 @@ import Link from "next/link";
 import BackButton from "@/components/backbutton";
 import VideoLink from "@/components/videolink";
 import ButtonsWrapper from "@/components/buttonswrapper";
+import DetailsWrapper from "@/components/detailswrapper";
 
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
@@ -25,11 +26,11 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
   const genres = movie.genres
 
   return(
-    <div className={styles.details}>
+    <DetailsWrapper>
       <h1>{movie.title}</h1>
       {movie.backdrop_path ?
-        <img src={`${IMG_BASE_URL}/original${movie.backdrop_path}`} alt={movie.title} />
-        : <img src="/backdrop-placeholder.jpeg" alt={movie.title} />
+        <img className={styles.backdrop} src={`${IMG_BASE_URL}/original${movie.backdrop_path}`} alt={movie.title} />
+        : <img className={styles.backdrop} src="/backdrop-placeholder.jpeg" alt={movie.title} />
       }
       <ul>
         <li>{`${movie.release_date.substring(0, 4)} `}<span>|</span></li>
@@ -55,6 +56,6 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
         <VideoLink id={movie.id} />
       </ButtonsWrapper>
 
-    </div>
+    </DetailsWrapper>
   )
 }
