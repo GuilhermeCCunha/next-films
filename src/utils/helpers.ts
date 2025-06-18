@@ -7,6 +7,11 @@ export const calcTime = (time: number): string => {
   return `${hours}h ${mins}m`;
 }
 
+export const formatAverage = (value: number): number => {
+  let regex: RegExp = /\.0*$|(\.\d*[1-9])0+$/;
+  return Number(value.toFixed(2).replace(regex, '$1'));
+}
+
 export const getSavedMovies = (): Array<MovieDetailsProps> => {
   const savedMovies: string = localStorage.getItem("nextfilms") || '[]';
   let movies: Array<MovieDetailsProps>

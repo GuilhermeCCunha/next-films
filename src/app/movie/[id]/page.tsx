@@ -1,7 +1,7 @@
 import { getMovieDetails } from "@/utils/get-data";
 import { MovieDetailsProps } from "@/utils/types/details";
 import styles from './styles.module.scss';
-import { calcTime } from "@/utils/helpers";
+import { calcTime, formatAverage } from "@/utils/helpers";
 import FavoriteButton from "@/components/favoritebutton";
 import { IMG_BASE_URL } from "@/utils/tmdb";
 import Link from "next/link";
@@ -49,7 +49,7 @@ export default async function Movie(props: { params: Promise<{ id: string }> }) 
 
       <h3>Overview</h3>
       <span>{movie.overview}</span>
-      <strong>⭐ {movie.vote_average} / 10</strong>
+      <strong>⭐ {formatAverage(movie.vote_average)} / 10</strong>
 
       <ButtonsWrapper>
         <FavoriteButton id={movie.id} />
