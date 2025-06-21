@@ -9,12 +9,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 - Movie search bar
 - Infinite scrolling
+- Collapsible sidebar
+- Favorites List using localStorage
 
 ## Tech Stack
 
 - Next.js
 - React
 - TypeScript
+- Sass
+- Back-end: The Movie Database (TMDB) API
 
 ## Getting Started
 
@@ -27,7 +31,19 @@ NEXT_PUBLIC_API_KEY=********************************
 ```
 Replace the asterisks with your personal API key.
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
