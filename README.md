@@ -5,11 +5,14 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+With Next Films, you can search for movies and check their details.
+
 ## Features
 
 - Movie search bar
 - Infinite scrolling
 - Collapsible sidebar
+- Movie details page with movie information
 - Favorites List using localStorage
 
 ## Tech Stack
