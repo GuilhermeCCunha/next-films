@@ -30,7 +30,7 @@ You will need a [TMDB account](https://www.themoviedb.org/signup) and an API key
 Inside this file, you will see this line: 
 
 ```dotenv  
-NEXT_PUBLIC_API_KEY=********************************
+API_KEY=********************************
 ```
 Replace the asterisks with your personal API key.
 

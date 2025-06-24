@@ -1,7 +1,10 @@
+"use server"
 import { redirect } from "next/navigation";
 import { API_KEY, API_URL } from "./tmdb";
+import { MovieProps } from "./types/movie";
+import { Genre, MovieDetailsProps, Video } from "./types/details";
 
-export async function getMovies(page: number) {
+export async function getMovies(page: number): Promise<MovieProps> {
   try{
     const res = await fetch(`${API_URL}/movie/now_playing?api_key=${API_KEY}&language=en&page=${page}`, { next: { revalidate: 120 } })
     const data = await res.json() 
@@ -11,7 +14,7 @@ export async function getMovies(page: number) {
   }
 }
 
-export async function getMovieDetails(id: number) { 
+export async function getMovieDetails(id: number): Promise<MovieDetailsProps> { 
   const res = await fetch(`${API_URL}/movie/${id}?api_key=${API_KEY}&language=en`, { next: { revalidate: 320 } })
   const movie = await res.json() 
     // console.log(movie)
@@ -23,7 +26,7 @@ export async function getMovieDetails(id: number) {
   return movie  
 }
 
-export async function searchMovies(page: number, name: string) {
+export async function searchMovies(page: number, name: string): Promise<MovieProps> {
   try{
     const res = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&query=${name}&language=en&page=${page}`, { next: { revalidate: 120 } })
     const data = await res.json() 
@@ -33,7 +36,7 @@ export async function searchMovies(page: number, name: string) {
   }
 }
 
-export async function getMoviesByGenre(page: number, genreId: number) {
+export async function getMoviesByGenre(page: number, genreId: number): Promise<MovieProps> {
   try{
     const res = await fetch(`${API_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&language=en&page=${page}`, { next: { revalidate: 120 } })
     const data = await res.json() 
@@ -43,7 +46,7 @@ export async function getMoviesByGenre(page: number, genreId: number) {
   }
 }
 
-export async function getGenreList() {
+export async function getGenreList(): Promise<Genre[]> {
   try{
     const res = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}&language=en`, { next: { revalidate: 60 * 60 * 24 } })
     const data = await res.json() 
@@ -54,7 +57,7 @@ export async function getGenreList() {
   }
 }
 
-export async function getVideos(id: number) {
+export async function getVideos(id: number): Promise<Video[]> {
   try{
     const res = await fetch(`${API_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en`, { next: { revalidate: 320 } })
     const data = await res.json()
