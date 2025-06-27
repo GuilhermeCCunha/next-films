@@ -25,6 +25,12 @@ With Next Films, you can search for movies and check their details.
 
 ## Getting Started
 
+Clone or download zip file
+
+```bash
+git clone https://github.com/GuilhermeCCunha/next-films.git
+```
+
 You will need a [TMDB account](https://www.themoviedb.org/signup) and an API key. In the project root folder, rename the file `.env.local.example` to `.env.local`:
 
 Inside this file, you will see this line: 
@@ -59,8 +65,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
