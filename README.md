@@ -68,6 +68,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Routes
+
+_/_ - homepage displays a list of movies that are currently in theatres
+
+_/movies/genre/[genreID]_ - page that displays movies based on the given genre
+
+_/movies/search?name=[movieName]_ - page that displays movies based on searches for their original, translated and alternative titles
+
+_/movie/[movieID]_ - page that displays details about the movie
+
+_/favorites_ - page that displays a list of favorite movies
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
