@@ -5,7 +5,7 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-With Next Films, you can search for movies and check their details.
+With Next Films, you can search for movies or view a list of movies that are currently in theatres or based on the given genre and check their details.
 
 ## Features
 
