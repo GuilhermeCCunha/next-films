@@ -28,7 +28,7 @@ export async function getMovieDetails(id: number): Promise<MovieDetailsProps> {
 
 export async function searchMovies(page: number, name: string): Promise<MovieProps> {
   try{
-    const res = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&query=${name}&language=en&page=${page}`, { next: { revalidate: 120 } })
+    const res = await fetch(`${API_URL}/search/movie?api_key=${API_KEY}&query=${name}&language=en&page=${page}`)
     const data = await res.json() 
     return data
   }catch(err){

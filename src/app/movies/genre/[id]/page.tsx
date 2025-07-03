@@ -1,3 +1,4 @@
+export const dynamic = 'force-static'
 import { MovieProps } from '@/utils/types/movie';
 import { getGenreList, getMoviesByGenre } from '@/utils/get-data';
 import MovieCard from '@/components/moviecard';

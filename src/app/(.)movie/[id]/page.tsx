@@ -1,3 +1,4 @@
+export const dynamic = 'force-static'
 import { getMovieDetails } from "@/utils/get-data";
 import { MovieDetailsProps } from "@/utils/types/details";
 import styles from './styles.module.scss';
