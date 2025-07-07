@@ -14,6 +14,7 @@ With Next Films, you can search for movies or view a list of movies that are cur
 - Collapsible sidebar
 - Movie details page with movie information
 - Favorites List using localStorage
+- Global state using Context API
 
 ## Tech Stack
 
@@ -21,6 +22,7 @@ With Next Films, you can search for movies or view a list of movies that are cur
 - React
 - TypeScript
 - Sass
+- react-intersection-observer
 - Back-end: The Movie Database (TMDB) API
 
 ## Getting Started
@@ -89,6 +91,10 @@ _/favorites_ - page that displays a list of favorite movies
 - [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 - [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Author
+
+- GitHub: [@GuilhermeCCunha](https://github.com/GuilhermeCCunha)
 
 [vercel-status]: https://deploy-badge.vercel.app/vercel/next-films-eight?style=flat-square
 [vercel-url]: https://next-films-eight.vercel.app/
