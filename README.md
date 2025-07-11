@@ -12,7 +12,7 @@ With Next Films, you can search for movies or view a list of movies that are cur
 - Movie search bar
 - Infinite scrolling
 - Collapsible sidebar
-- Movie details page with movie information
+- Movie details page with movie information, including a link to a video[^1] if it exists
 - Favorites List using localStorage
 - Global state using Context API
 
@@ -95,6 +95,13 @@ _/favorites_ - page that displays a list of favorite movies
 ## Author
 
 - GitHub: [@GuilhermeCCunha](https://github.com/GuilhermeCCunha)
+
+## License
+
+Copyright © 2025 [Guilherme Cunha](https://github.com/GuilhermeCCunha).<br />
+This project is [MIT](https://github.com/GuilhermeCCunha/next-films/blob/main/LICENSE) licensed.
+
+[^1]: The API doesn't provide any links to actual movies, only trailers/behind the scenes/featurettes, etc...
 
 [vercel-status]: https://deploy-badge.vercel.app/vercel/next-films-eight?style=flat-square
 [vercel-url]: https://next-films-eight.vercel.app/
