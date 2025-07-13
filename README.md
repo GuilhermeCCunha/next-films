@@ -25,6 +25,10 @@ With Next Films, you can search for movies or view a list of movies that are cur
 - react-intersection-observer
 - Back-end: The Movie Database (TMDB) API
 
+## Demonstration
+
+
+
 ## Getting Started
 
 Clone or download zip file
