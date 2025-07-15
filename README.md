@@ -27,7 +27,13 @@ With Next Films, you can search for movies or view a list of movies that are cur
 
 ## Demonstration
 
+### Search
 
+![next_films_search_demonstration](https://github.com/user-attachments/assets/ef729acd-2d5a-4eeb-abd9-221521e25c08)
+
+### Collapsible sidebar
+
+![next_films_sidebar_demonstration](https://github.com/user-attachments/assets/67278c53-7e25-40b3-991c-17f4d6b2a9f9)
 
 ## Getting Started
 
