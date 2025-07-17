@@ -27,13 +27,37 @@ With Next Films, you can search for movies or view a list of movies that are cur
 
 ## Demonstration
 
+### Scrolling
+
+![next_films_scrolling_demonstration](https://github.com/user-attachments/assets/6c09a10f-e2f9-4837-90a9-e191cb672172)
+
 ### Search
 
 ![next_films_search_demonstration](https://github.com/user-attachments/assets/ef729acd-2d5a-4eeb-abd9-221521e25c08)
 
-### Collapsible sidebar
+### Medium Screens
+
+#### Collapsible sidebar
 
 ![next_films_sidebar_demonstration](https://github.com/user-attachments/assets/67278c53-7e25-40b3-991c-17f4d6b2a9f9)
+
+#### Favoriting
+
+![next_films_favoriting_demonstration](https://github.com/user-attachments/assets/42588b4f-5996-4bcd-8c55-154935bf33e1)
+
+## Screenshots
+
+### Movie details page
+
+#### Default
+
+<img width="1920" height="1080" alt="next_films_details_default_screenshot" src="https://github.com/user-attachments/assets/d1b9d435-dd22-4075-bede-c3596a6c49bc" />
+
+#### Alternative
+
+<img width="1920" height="1080" alt="next_films_details_alternative_screenshot" src="https://github.com/user-attachments/assets/12d11ba8-8a4c-47b4-aef4-c60b1874bef5" />
+
+
 
 ## Getting Started
 
