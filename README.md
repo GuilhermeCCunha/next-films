@@ -45,6 +45,12 @@ With Next Films, you can search for movies or view a list of movies that are cur
 
 ![next_films_favoriting_demonstration](https://github.com/user-attachments/assets/42588b4f-5996-4bcd-8c55-154935bf33e1)
 
+### Small Screens
+
+#### The movie genres that appear on the details page are clickable links
+
+![next_films_mobile_demonstration](https://github.com/user-attachments/assets/0838d8b8-6561-4ad4-af29-4c163531d6c7)
+
 ## Screenshots
 
 ### Movie details page
