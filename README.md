@@ -136,6 +136,10 @@ _/favorites_ - page that displays a list of favorite movies
 
 - GitHub: [@GuilhermeCCunha](https://github.com/GuilhermeCCunha)
 
+## Show your support
+
+Please ⭐️ this repository if you liked it!
+
 ## License
 
 Copyright © 2025 [Guilherme Cunha](https://github.com/GuilhermeCCunha).<br />
