@@ -57,11 +57,11 @@ With Next Films, you can search for movies or view a list of movies that are cur
 
 #### Default
 
-<img width="1920" height="1080" alt="next_films_details_default_screenshot" src="https://github.com/user-attachments/assets/d1b9d435-dd22-4075-bede-c3596a6c49bc" />
+<img alt="next_films_details_default_screenshot" src="https://github.com/user-attachments/assets/d1b9d435-dd22-4075-bede-c3596a6c49bc" />
 
 #### Alternative
 
-<img width="1920" height="1080" alt="next_films_details_alternative_screenshot" src="https://github.com/user-attachments/assets/12d11ba8-8a4c-47b4-aef4-c60b1874bef5" />
+<img alt="next_films_details_alternative_screenshot" src="https://github.com/user-attachments/assets/12d11ba8-8a4c-47b4-aef4-c60b1874bef5" />
 
 
 
@@ -119,6 +119,14 @@ _/movies/search?name=[movieName]_ - page that displays movies based on searches 
 _/movie/[movieID]_ - page that displays details about the movie
 
 _/favorites_ - page that displays a list of favorite movies
+
+### Deployment Summary
+
+!["next_films_routes_vercel](https://github.com/user-attachments/assets/74e91617-ce4d-448d-b286-17d424a9f259) \
+*deployment summary - Vercel*
+
+- ƒ - server-rendered on demand
+- ISR - Incremental Static Regeneration
 
 ## Additional Information
 
