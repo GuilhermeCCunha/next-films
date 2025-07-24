@@ -5,7 +5,33 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+This project is using the [App Router](https://nextjs.org/docs/app/building-your-application/routing).
+
 With Next Films, you can search for movies or view a list of movies that are currently in theatres or based on the given genre and check their details.
+
+## Table of contents
+
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Demonstration](#demonstration)
+  * [Scrolling](#scrolling)
+  * [Search](#search)
+  * [Medium Screens](#medium-screens)
+    * [Collapsible sidebar](#collapsible-sidebar)
+    * [Favoriting](#favoriting)
+  * [Small Screens](#small-screens)
+    * [Clickable Links](#clickable-links)  
+* [Screenshots](#screenshots)
+  * [Movie details page](#movie-details-page)
+    * [Default](#default)
+    * [Alternative](#alternative)
+* [Getting Started](#getting-started)
+* [Routes](#routes)
+  * [Deployment Summary](#deployment-summary)
+* [Additional Information](#additional-information) 
+* [Author](#author)
+* [Show your support](#show-your-support)
+* [License](#license)
 
 ## Features
 
@@ -47,7 +73,9 @@ With Next Films, you can search for movies or view a list of movies that are cur
 
 ### Small Screens
 
-#### The movie genres that appear on the details page are clickable links
+#### Clickable Links
+
+The movie genres that appear on the details page are clickable links
 
 ![next_films_mobile_demonstration](https://github.com/user-attachments/assets/0838d8b8-6561-4ad4-af29-4c163531d6c7)
 
