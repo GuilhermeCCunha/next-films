@@ -1,4 +1,8 @@
 # Next Films
+🌏
+English |
+[**Português do Brasil**][readme-pt-br]
+
 [![Vercel Deploy][vercel-status]][vercel-url]
 [![GitHub repo size][github-img]][github-url]
 [![GitHub last commit][github-commit]][github-url]
@@ -91,8 +95,6 @@ The movie genres that appear on the details page are clickable links
 
 <img alt="next_films_details_alternative_screenshot" src="https://github.com/user-attachments/assets/12d11ba8-8a4c-47b4-aef4-c60b1874bef5" />
 
-
-
 ## Getting Started
 
 Clone or download zip file
@@ -183,6 +185,8 @@ This project is [MIT](https://github.com/GuilhermeCCunha/next-films/blob/main/LI
 
 [^1]: The API doesn't provide any links to actual movies, only trailers/behind the scenes/featurettes, etc...
 
+[readme-en]: https://github.com/GuilhermeCCunha/next-films/blob/main/README.md
+[readme-pt-br]: https://github.com/GuilhermeCCunha/next-films/blob/main/README.pt-br.md
 [vercel-status]: https://deploy-badge.vercel.app/vercel/next-films-eight?style=flat-square
 [vercel-url]: https://next-films-eight.vercel.app/
 [github-img]: https://img.shields.io/github/repo-size/GuilhermeCCunha/next-films?logo=github&style=flat-square
