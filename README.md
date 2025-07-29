@@ -1,7 +1,7 @@
 # Next Films
 🌏
 English |
-[**Português do Brasil**][readme-pt-br]
+[**Português**][readme-pt-br]
 
 [![Vercel Deploy][vercel-status]][vercel-url]
 [![GitHub repo size][github-img]][github-url]
@@ -185,7 +185,6 @@ This project is [MIT](https://github.com/GuilhermeCCunha/next-films/blob/main/LI
 
 [^1]: The API doesn't provide any links to actual movies, only trailers/behind the scenes/featurettes, etc...
 
-[readme-en]: https://github.com/GuilhermeCCunha/next-films/blob/main/README.md
 [readme-pt-br]: https://github.com/GuilhermeCCunha/next-films/blob/main/README.pt-br.md
 [vercel-status]: https://deploy-badge.vercel.app/vercel/next-films-eight?style=flat-square
 [vercel-url]: https://next-films-eight.vercel.app/
