@@ -97,7 +97,7 @@ The movie genres that appear on the details page are clickable links
 
 ## Getting Started
 
-Clone or download zip file
+Clone or download zip file:
 
 ```bash
 git clone https://github.com/GuilhermeCCunha/next-films.git

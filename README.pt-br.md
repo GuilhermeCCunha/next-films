@@ -97,7 +97,7 @@ Os gêneros de filmes que aparecem na página de detalhes são links clicáveis
 
 ## Começando
 
-Clone o repositório ou faça o download do arquivo zip
+Clone o repositório ou faça o download do arquivo zip:
 
 ```bash
 git clone https://github.com/GuilhermeCCunha/next-films.git
